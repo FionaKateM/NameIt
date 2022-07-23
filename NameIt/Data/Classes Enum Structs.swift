@@ -49,3 +49,13 @@ class GameSettings: ObservableObject {
     @Published var unguessedWords: [String: [String]] = [:]
     @Published var allSynonyms: [String] = [] // for quick checking during active game
 }
+
+struct DataEvent: Codable, Identifiable, Hashable {
+    // date: Date, total players: Int, words: [word: Int], guessed words: [0: Int, 1: Int], finishing times (if they get all words): [0: Int, 1: Int]
+    @DocumentID var id: String?
+    var timestamp = Date.now
+    var gameID: String = ""
+    var guessedWords: [String: Int] = [:]// string is simplified word, second is 0 if not guessed and 1 if guessed
+    var time: Int = 0 // 0 if ran out of time, otherwise value on clock if all words guessed
+    var location: String = ""
+}

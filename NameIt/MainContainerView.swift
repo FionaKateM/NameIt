@@ -35,14 +35,6 @@ struct MainContainerView: View {
                 .environmentObject(settings)
 
             if settings.gameStatus == .started {
-//                TextField("Type your answer", text: $word)
-//                    .disableAutocorrection(true)
-//                    .textCase(.lowercase)
-//                    .textInputAutocapitalization(.never)
-//                    .padding(.horizontal)
-//                    .textFieldStyle(.roundedBorder)
-//                    .focused($focus, equals: .word)
-//                LyricsView(rows: getRows())
                 ActiveGameView()
                     .environmentObject(settings)
             } else if settings.gameStatus == .notStarted {
@@ -52,7 +44,8 @@ struct MainContainerView: View {
                     }
                 }
             } else if settings.gameStatus == .ended {
-                Text("game ended")
+                GameEndedView(dataEvent: DataEvent(), gameID: selectedID)
+                    .environmentObject(settings)
             }
             //            Button("Add test song") {
             //                Task {

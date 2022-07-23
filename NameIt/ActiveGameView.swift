@@ -45,20 +45,25 @@ struct ActiveGameView: View {
     }
     
     private func checkWord() {
-        let simplifiedWord = word.lowercased().filter("abcdefghijklmnopqrstuvwxyz ".contains)
-        if settings.allSynonyms.contains(simplifiedWord) {
-            for (k, i) in settings.unguessedWords {
-                if i.contains(simplifiedWord) {
-                    settings.correctAnswersGiven.append(k)
-                    for synonym in i {
-                        if let index = settings.allSynonyms.firstIndex(of: synonym) {
-                            settings.allSynonyms.remove(at: index)
+        if word.count > 0 {
+            let simplifiedWord = word.lowercased().filter("abcdefghijklmnopqrstuvwxyz ".contains)
+            if let index = settings.allSynonyms.firstIndex(of: simplifiedWord) {
+                settings.allSynonyms.remove(at: index)
+                for (k, i) in settings.unguessedWords {
+                    if i.contains(simplifiedWord) {
+                        settings.correctAnswersGiven.append(k)
+                        for synonym in i {
+                            if let index = settings.allSynonyms.firstIndex(of: synonym) {
+                                settings.allSynonyms.remove(at: index)
+                            }
                         }
+                        settings.unguessedWords.removeValue(forKey: k)
                     }
                 }
+                word = ""
             }
-            word = ""
         }
+        
     }
 }
 

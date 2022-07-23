@@ -92,8 +92,7 @@
 				BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */,
 				BAAF5F47288BEE64001E5195 /* LyricsView.swift */,
 				BAAF5F45288BDEDB001E5195 /* Test Data.swift */,
-				BAAF5F49288BF443001E5195 /* MasterData.swift */,
-				BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */,
+				BAAF5F4B288C0C4A001E5195 /* Data */,
 				BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */,
 				BAAF5F3D288BD4DF001E5195 /* ProfileView.swift */,
 				BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */,
@@ -115,6 +114,15 @@
 				BA6845AD2871B77B009300E6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BAAF5F4B288C0C4A001E5195 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BAAF5F49288BF443001E5195 /* MasterData.swift */,
+				BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
