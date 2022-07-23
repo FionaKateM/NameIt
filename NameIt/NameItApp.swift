@@ -22,7 +22,7 @@ struct NameItApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainContainerView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

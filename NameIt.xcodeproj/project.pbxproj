@@ -18,6 +18,16 @@
 		BA6845BF28720296009300E6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BA6845BE28720296009300E6 /* FirebaseFirestore */; };
 		BA6845C128720296009300E6 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA6845C028720296009300E6 /* FirebaseFirestoreSwift */; };
 		BA6845C3287204E9009300E6 /* ActiveSoloGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6845C2287204E9009300E6 /* ActiveSoloGameView.swift */; };
+		BAAF5F38288BD4B0001E5195 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F37288BD4B0001E5195 /* HomeView.swift */; };
+		BAAF5F3A288BD4C3001E5195 /* PreviousGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */; };
+		BAAF5F3C288BD4CF001E5195 /* ActiveGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */; };
+		BAAF5F3E288BD4DF001E5195 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F3D288BD4DF001E5195 /* ProfileView.swift */; };
+		BAAF5F40288BD4E8001E5195 /* GameEndedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */; };
+		BAAF5F42288BDE01001E5195 /* MainContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F41288BDE01001E5195 /* MainContainerView.swift */; };
+		BAAF5F44288BDE89001E5195 /* Classes Enum Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */; };
+		BAAF5F46288BDEDB001E5195 /* Test Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F45288BDEDB001E5195 /* Test Data.swift */; };
+		BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F47288BEE64001E5195 /* LyricsView.swift */; };
+		BAAF5F4A288BF443001E5195 /* MasterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F49288BF443001E5195 /* MasterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +40,17 @@
 		BA6845B22871B77B009300E6 /* NameIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NameIt.xcdatamodel; sourceTree = "<group>"; };
 		BA6845B9287201B5009300E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA6845C2287204E9009300E6 /* ActiveSoloGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSoloGameView.swift; sourceTree = "<group>"; };
+		BAAF5F36288B0952001E5195 /* Lists.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Lists.md; sourceTree = "<group>"; };
+		BAAF5F37288BD4B0001E5195 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousGamesView.swift; sourceTree = "<group>"; };
+		BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveGameView.swift; sourceTree = "<group>"; };
+		BAAF5F3D288BD4DF001E5195 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndedView.swift; sourceTree = "<group>"; };
+		BAAF5F41288BDE01001E5195 /* MainContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerView.swift; sourceTree = "<group>"; };
+		BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes Enum Structs.swift"; sourceTree = "<group>"; };
+		BAAF5F45288BDEDB001E5195 /* Test Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test Data.swift"; sourceTree = "<group>"; };
+		BAAF5F47288BEE64001E5195 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
+		BAAF5F49288BF443001E5195 /* MasterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +87,19 @@
 			isa = PBXGroup;
 			children = (
 				BA6845A62871B77A009300E6 /* NameItApp.swift */,
+				BAAF5F37288BD4B0001E5195 /* HomeView.swift */,
+				BAAF5F41288BDE01001E5195 /* MainContainerView.swift */,
+				BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */,
+				BAAF5F47288BEE64001E5195 /* LyricsView.swift */,
+				BAAF5F45288BDEDB001E5195 /* Test Data.swift */,
+				BAAF5F49288BF443001E5195 /* MasterData.swift */,
+				BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */,
+				BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */,
+				BAAF5F3D288BD4DF001E5195 /* ProfileView.swift */,
+				BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */,
 				BA6845A82871B77A009300E6 /* ContentView.swift */,
 				BA6845C2287204E9009300E6 /* ActiveSoloGameView.swift */,
+				BAAF5F36288B0952001E5195 /* Lists.md */,
 				BA6845AA2871B77B009300E6 /* Assets.xcassets */,
 				BA6845AF2871B77B009300E6 /* Persistence.swift */,
 				BA6845B12871B77B009300E6 /* NameIt.xcdatamodeld */,
@@ -164,10 +196,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAAF5F44288BDE89001E5195 /* Classes Enum Structs.swift in Sources */,
+				BAAF5F3C288BD4CF001E5195 /* ActiveGameView.swift in Sources */,
+				BAAF5F46288BDEDB001E5195 /* Test Data.swift in Sources */,
+				BAAF5F3E288BD4DF001E5195 /* ProfileView.swift in Sources */,
 				BA6845B02871B77B009300E6 /* Persistence.swift in Sources */,
+				BAAF5F42288BDE01001E5195 /* MainContainerView.swift in Sources */,
+				BAAF5F4A288BF443001E5195 /* MasterData.swift in Sources */,
 				BA6845B32871B77B009300E6 /* NameIt.xcdatamodeld in Sources */,
 				BA6845A92871B77A009300E6 /* ContentView.swift in Sources */,
+				BAAF5F3A288BD4C3001E5195 /* PreviousGamesView.swift in Sources */,
+				BAAF5F38288BD4B0001E5195 /* HomeView.swift in Sources */,
+				BAAF5F40288BD4E8001E5195 /* GameEndedView.swift in Sources */,
 				BA6845A72871B77A009300E6 /* NameItApp.swift in Sources */,
+				BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */,
 				BA6845C3287204E9009300E6 /* ActiveSoloGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
