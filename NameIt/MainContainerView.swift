@@ -21,20 +21,20 @@ struct MainContainerView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-//    @State private var word: String = ""
-//    @FocusState private var focus: FocusableField?
+    //    @State private var word: String = ""
+    //    @FocusState private var focus: FocusableField?
     @StateObject var settings = GameSettings()
     @State private var selectedID = "GiqtSWNG6hfo84mkHpHD"
     //    private var tempListData: List?
     //    @State private var previousLists: [List] = []
     //    @State private var todaysID = ""
-    
+
     var body: some View {
         VStack {
             Text("Name It")
                 .environmentObject(settings)
-
-            if settings.gameStatus == .started {
+            
+            if settings.gameStatus == .started || settings.gameStatus == .ended {
                 ActiveGameView()
                     .environmentObject(settings)
             } else if settings.gameStatus == .notStarted {
@@ -43,16 +43,7 @@ struct MainContainerView: View {
                         await startGame()
                     }
                 }
-            } else if settings.gameStatus == .ended {
-                GameEndedView(dataEvent: DataEvent(), gameID: selectedID)
-                    .environmentObject(settings)
             }
-            //            Button("Add test song") {
-            //                Task {
-            //                    testAdd(song: shakeItOff)
-            //                }
-            //            }
-            
             
         }
     }
@@ -98,12 +89,16 @@ struct MainContainerView: View {
         print("start game")
         await fetchSong(id: selectedID)
         settings.correctAnswersGiven = []
-//        word = ""
+        //        word = ""
         settings.gameStatus = .started
         settings.timeRemaining = settings.song?.timer ?? 0
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-//                    ActiveGameView.focus = .word
-//                }
+        settings.gameID = selectedID
+        //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+        //                    ActiveGameView.focus = .word
+        //                }
+        getAllGameData(id: selectedID)
+        getColors()
+        
     }
     
     func testAdd(song: Song) {
@@ -134,16 +129,60 @@ struct MainContainerView: View {
         return rows
     }
     
-    func wordMatched(word: String) {
-        // finds word in dictionary value
-        // adds dictionary key to found words array
-        // removes all synonyms from 'all synonyms' list
+    func getAllGameData(id: String) {
+        var globalData = GlobalGameData(id: id, totalPlayers: 0, words: [:], finishTimes: [:])
+        print("fetch game data")
+        let db = Firestore.firestore()
+        db.collection("events").whereField("gameID", isEqualTo: id)
+            .getDocuments() { (querySnapshot, err) in
+                print("getting documents")
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let dict = document.data()
+                        // finish times
+                        if let finishTime = dict["time"] as? Int {
+                            globalData.finishTimes[finishTime, default: 1] += 1
+                        }
+                        // words
+                        if let words = dict["guessedWords"] as? [String: Int] {
+                            print("words: \(words)")
+                            for word in words {
+                                globalData.words[word.key, default: word.value] += word.value
+                            }
+                        } else {
+                            print("dict words: \(dict["words"])")
+                        }
+                        
+                        print("global data: \(globalData)")
+                        // total players
+                        globalData.totalPlayers = querySnapshot!.documents.count
+                        
+    //                    print("\(document.documentID) => \(document.data())")
+                        
+                    }
+                    settings.globalGameData = globalData
+                    getColors()
+                }
+            }
+        
     }
-}
 
-struct MainContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainContainerView()
+    func getColors(){
+        print("colors start: \(settings.globalGameData.words)")
+        var colors:[String: Color] = [:]
+        let max = settings.globalGameData.words.values.max() ?? 1
+        for word in settings.globalGameData.words {
+            let value = (word.value / max) * 200
+                colors[word.key] = Color(red: Double(100 - value), green: Double(100 + value), blue: 100, opacity: 1)
+    //        colors[word.key] = Color(red: 200, green: 100, blue: 100, opacity: 1)
+            
+        }
+        print("colors: \(colors)")
+        settings.wordColors = colors
     }
+
+    
 }
 

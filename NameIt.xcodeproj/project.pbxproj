@@ -29,10 +29,11 @@
 		BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F47288BEE64001E5195 /* LyricsView.swift */; };
 		BAAF5F4A288BF443001E5195 /* MasterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F49288BF443001E5195 /* MasterData.swift */; };
 		BAAF5F4D288DA2F1001E5195 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F4C288DA2F1001E5195 /* Extensions.swift */; };
+		BAB5644E288DC79600832326 /* FirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5644D288DC79600832326 /* FirebaseFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA6845A32871B77A009300E6 /* NameIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NameIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6845A32871B77A009300E6 /* Blankeoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blankeoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6845A62871B77A009300E6 /* NameItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameItApp.swift; sourceTree = "<group>"; };
 		BA6845A82871B77A009300E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BA6845AA2871B77B009300E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		BAAF5F47288BEE64001E5195 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		BAAF5F49288BF443001E5195 /* MasterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterData.swift; sourceTree = "<group>"; };
 		BAAF5F4C288DA2F1001E5195 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BAB5644D288DC79600832326 /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,7 @@
 		BA6845A42871B77A009300E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BA6845A32871B77A009300E6 /* NameIt.app */,
+				BA6845A32871B77A009300E6 /* Blankeoke.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,13 +94,13 @@
 				BAAF5F37288BD4B0001E5195 /* HomeView.swift */,
 				BAAF5F41288BDE01001E5195 /* MainContainerView.swift */,
 				BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */,
-				BAAF5F4C288DA2F1001E5195 /* Extensions.swift */,
 				BAAF5F47288BEE64001E5195 /* LyricsView.swift */,
+				BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */,
+				BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */,
+				BAAF5F4C288DA2F1001E5195 /* Extensions.swift */,
 				BAAF5F45288BDEDB001E5195 /* Test Data.swift */,
 				BAAF5F4B288C0C4A001E5195 /* Data */,
-				BAAF5F39288BD4C3001E5195 /* PreviousGamesView.swift */,
 				BAAF5F3D288BD4DF001E5195 /* ProfileView.swift */,
-				BAAF5F3F288BD4E8001E5195 /* GameEndedView.swift */,
 				BA6845A82871B77A009300E6 /* ContentView.swift */,
 				BA6845C2287204E9009300E6 /* ActiveSoloGameView.swift */,
 				BAAF5F36288B0952001E5195 /* Lists.md */,
@@ -124,6 +126,7 @@
 			children = (
 				BAAF5F49288BF443001E5195 /* MasterData.swift */,
 				BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */,
+				BAB5644D288DC79600832326 /* FirebaseFunctions.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -150,7 +153,7 @@
 				BA6845C028720296009300E6 /* FirebaseFirestoreSwift */,
 			);
 			productName = NameIt;
-			productReference = BA6845A32871B77A009300E6 /* NameIt.app */;
+			productReference = BA6845A32871B77A009300E6 /* Blankeoke.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -222,6 +225,7 @@
 				BAAF5F40288BD4E8001E5195 /* GameEndedView.swift in Sources */,
 				BA6845A72871B77A009300E6 /* NameItApp.swift in Sources */,
 				BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */,
+				BAB5644E288DC79600832326 /* FirebaseFunctions.swift in Sources */,
 				BA6845C3287204E9009300E6 /* ActiveSoloGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +363,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -366,11 +371,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.fionakate.NameIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.fionakate.Blankeoke;
+				PRODUCT_NAME = Blankeoke;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,6 +393,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -395,11 +401,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.fionakate.NameIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.fionakate.Blankeoke;
+				PRODUCT_NAME = Blankeoke;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -19,39 +19,48 @@ struct ActiveGameView: View {
     var body: some View {
         GeometryReader { metrics in
             VStack {
-                Text("\(settings.timeRemaining)")
-                    .onReceive(timer) { _ in
-                        if settings.timeRemaining > 0 {
-                            settings.timeRemaining -= 1
-                        } else {
-                            settings.gameStatus = .ended
+                
+                if settings.gameStatus == .started {
+                    Text("\(settings.timeRemaining)")
+                        .onReceive(timer) { _ in
+                            if settings.timeRemaining > 0 {
+                                settings.timeRemaining -= 1
+                            } else {
+                                settings.gameStatus = .ended
+                            }
                         }
-                    }
-                TextField("Type your answer", text: $word)
-                    .disableAutocorrection(true)
-                    .textCase(.lowercase)
-                    .textInputAutocapitalization(.never)
-//                    .padding(.horizontal)
-                    .textFieldStyle(.roundedBorder)
-                    .focused($focus, equals: .word)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                            focus = .word
+                    TextField("Type your answer", text: $word)
+                        .disableAutocorrection(true)
+                        .textCase(.lowercase)
+                        .textInputAutocapitalization(.never)
+                        .padding(.horizontal)
+                        .textFieldStyle(.roundedBorder)
+                        .focused($focus, equals: .word)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                focus = .word
+                            }
                         }
-                    }
+                }
                 LyricsView(rows: getRows())
                     .frame(maxHeight: (metrics.size.height))
                     .onChange(of: word) { newValue in
                         checkWord()
                     }
                     .ignoresSafeArea(.keyboard)
-//                    .padding(.bottom, keyboardHeight)
+                //                    .padding(.bottom, keyboardHeight)
                     .onReceive(Publishers.keyboardHeight) {
+                        if self.keyboardHeight < $0 {
                         self.keyboardHeight = $0
-                        print($0)
-                        print(metrics.size.height)
+                        }
+
                     }
                 Spacer()
+                if settings.gameStatus == .ended {
+                    GameEndedView(dataEvent: DataEvent())
+                        .frame(minHeight: keyboardHeight, maxHeight: (keyboardHeight))
+                        
+                }
             }
         }
     }
@@ -90,9 +99,3 @@ struct ActiveGameView: View {
         
     }
 }
-
-//struct ActiveGameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActiveGameView()
-//    }
-//}

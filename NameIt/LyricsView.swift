@@ -16,29 +16,12 @@ struct LyricsView: View {
     var body: some View {
         //        ScrollView {
         ScrollViewReader { scrollView in
-            //            Button("Scroll to 100") {
-            //                scrollView.scrollTo(100, anchor: .top)
-            //                print(scrollView)
-            //            }
-            //            Button("Scroll to 0") {
-            //                scrollView.scrollTo(0, anchor: .top)
-            //                print(scrollView)
-            //            }
-            //            Button("Scroll to 50") {
-            //                scrollView.scrollTo(50, anchor: .top)
-            //                print(scrollView)
-            //            }
-            //            Button("Scroll to 75") {
-            //                scrollView.scrollTo(75, anchor: .top)
-            //                print(scrollView)
-            //            }
             GeometryReader { metrics in
                 ScrollView(.vertical) {
                     VStack {
                         ForEach(0..<rows.count) { i in
                             Spacer()
                             let array = rows[i].components(separatedBy: " ")
-                            
                             
                             HStack {
                                 Spacer()
@@ -51,14 +34,14 @@ struct LyricsView: View {
                                             .minimumScaleFactor(0.1)
                                             .padding(5)
                                             .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
-                                            .background(.gray)
+                                            .background(settings.gameStatus == .ended ? settings.wordColors[word] : .gray)
                                             .cornerRadius(15)
                                     } else {
                                         Text(word)
                                             .minimumScaleFactor(0.1)
                                             .padding(5)
                                             .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
-                                            .background(.pink)
+                                            .background(settings.gameStatus == .ended ? settings.wordColors[word] : .pink)
                                             .cornerRadius(15)
                                     }
                                 }
@@ -92,6 +75,7 @@ struct LyricsView: View {
         }
         return 0
     }
+    
     
     
 }

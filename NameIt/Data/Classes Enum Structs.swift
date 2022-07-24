@@ -49,6 +49,9 @@ class GameSettings: ObservableObject {
     @Published var unguessedWords: [String: [String]] = [:]
     @Published var allSynonyms: [String] = [] // for quick checking during active game
     @Published var lastGuessedWord = "" // allows scroll view to jump to last guessed word, also allows extra styling
+    @Published var gameID = ""
+    var globalGameData = GlobalGameData(totalPlayers: 0, words: [:], finishTimes: [:])
+    var wordColors: [String: Color] = [:]
 }
 
 struct DataEvent: Codable, Identifiable, Hashable {
@@ -60,3 +63,12 @@ struct DataEvent: Codable, Identifiable, Hashable {
     var time: Int = 0 // 0 if ran out of time, otherwise value on clock if all words guessed
     var location: String = ""
 }
+
+struct GlobalGameData: Codable, Identifiable, Hashable {
+    @DocumentID var id: String?
+    var totalPlayers: Int
+    var words: [String: Int]
+    var finishTimes: [Int: Int]
+}
+
+
