@@ -11,44 +11,85 @@ struct LyricsView: View {
     
     @EnvironmentObject var settings: GameSettings
     @State var rows: [String]
+    //    @State var scrollLocation = 0
     
     var body: some View {
-        ScrollView {
-            ForEach(rows, id: \.self) {
-                Spacer()
-                let array = $0.components(separatedBy: " ")
-                GeometryReader { metrics in
-                    HStack {
-                        Spacer()
-                        ForEach(array, id:\.self) { word in
-                            let width = (metrics.size.width / (CGFloat((array.count + 1)))) - 8
+        //        ScrollView {
+        ScrollViewReader { scrollView in
+            //            Button("Scroll to 100") {
+            //                scrollView.scrollTo(100, anchor: .top)
+            //                print(scrollView)
+            //            }
+            //            Button("Scroll to 0") {
+            //                scrollView.scrollTo(0, anchor: .top)
+            //                print(scrollView)
+            //            }
+            //            Button("Scroll to 50") {
+            //                scrollView.scrollTo(50, anchor: .top)
+            //                print(scrollView)
+            //            }
+            //            Button("Scroll to 75") {
+            //                scrollView.scrollTo(75, anchor: .top)
+            //                print(scrollView)
+            //            }
+            GeometryReader { metrics in
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach(0..<rows.count) { i in
+                            Spacer()
+                            let array = rows[i].components(separatedBy: " ")
                             
-                            if settings.allSynonyms.contains(word.lowercased().filter("abcdefghijklmnopqrstuvwxyz ".contains)) {
-                                Text("")
-                                    .minimumScaleFactor(0.1)
-                                    .padding(5)
-                                    .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
-                                    .background(.gray)
-                                    .cornerRadius(15)
-                            } else {
-                                Text(word)
-                                    .minimumScaleFactor(0.1)
-                                    .padding(5)
-                                    .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
-                                    .background(.pink)
-                                    .cornerRadius(15)
+                            
+                            HStack {
+                                Spacer()
+                                ForEach(0..<array.count) { x in
+                                    let word = array[x]
+                                    let width = (metrics.size.width / (CGFloat((array.count + 1)))) - 8
+                                    
+                                    if settings.allSynonyms.contains(word.lowercased().filter("abcdefghijklmnopqrstuvwxyz ".contains)) {
+                                        Text("")
+                                            .minimumScaleFactor(0.1)
+                                            .padding(5)
+                                            .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
+                                            .background(.gray)
+                                            .cornerRadius(15)
+                                        //                                            .id(i)
+                                    } else {
+                                        Text(word)
+                                            .minimumScaleFactor(0.1)
+                                            .padding(5)
+                                            .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
+                                            .background(.pink)
+                                            .cornerRadius(15)
+                                        //                                            .id(i)
+                                    }
+                                }
+                                Spacer()
                             }
+                            .id(i)
+                            .frame(minWidth: 0, maxWidth: metrics.size.width * 0.98, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                         }
                         Spacer()
+                            .onChange(of: settings.lastGuessedWord) { word in
+                                scrollView.scrollTo(getScrollLocation(), anchor: .top)
+                            }
+                        
                     }
-                    
-                    .frame(minWidth: 0, maxWidth: metrics.size.width * 0.98, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                 }
-                .padding(3)
-                Spacer()
             }
         }
     }
+    
+    
+    func getScrollLocation() -> Int {
+        for i in (0..<rows.count) {
+            if rows[i].contains(settings.lastGuessedWord) {
+                return i
+            }
+        }
+        return 0
+    }
+    
     
 }
 

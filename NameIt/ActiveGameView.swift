@@ -33,6 +33,7 @@ struct ActiveGameView: View {
             .onChange(of: word) { newValue in
                 checkWord()
             }
+        Spacer()
     }
     
     func getRows() -> [String] {
@@ -48,6 +49,9 @@ struct ActiveGameView: View {
         if word.count > 0 {
             let simplifiedWord = word.lowercased().filter("abcdefghijklmnopqrstuvwxyz ".contains)
             if let index = settings.allSynonyms.firstIndex(of: simplifiedWord) {
+                if simplifiedWord != settings.lastGuessedWord {
+                    settings.lastGuessedWord = simplifiedWord
+                }
                 settings.allSynonyms.remove(at: index)
                 for (k, i) in settings.unguessedWords {
                     if i.contains(simplifiedWord) {

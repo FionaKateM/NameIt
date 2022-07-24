@@ -48,6 +48,7 @@ class GameSettings: ObservableObject {
     @Published var correctAnswersArray: [String: String] = [:] // key is the lowercase without punctuation, value is what shows to player in lyrics view
     @Published var unguessedWords: [String: [String]] = [:]
     @Published var allSynonyms: [String] = [] // for quick checking during active game
+    @Published var lastGuessedWord = "" // allows scroll view to jump to last guessed word, also allows extra styling
 }
 
 struct DataEvent: Codable, Identifiable, Hashable {

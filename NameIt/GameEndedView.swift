@@ -20,10 +20,6 @@ struct GameEndedView: View {
                 fulfilDataEvent()
             }
             Text("some text")
-                .onChange(of: dataEvent) { newValue in
-                    print("changed")
-                }
-            
         }
     }
     
