@@ -28,6 +28,7 @@
 		BAAF5F46288BDEDB001E5195 /* Test Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F45288BDEDB001E5195 /* Test Data.swift */; };
 		BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F47288BEE64001E5195 /* LyricsView.swift */; };
 		BAAF5F4A288BF443001E5195 /* MasterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F49288BF443001E5195 /* MasterData.swift */; };
+		BAAF5F4D288DA2F1001E5195 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F4C288DA2F1001E5195 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		BAAF5F45288BDEDB001E5195 /* Test Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test Data.swift"; sourceTree = "<group>"; };
 		BAAF5F47288BEE64001E5195 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		BAAF5F49288BF443001E5195 /* MasterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterData.swift; sourceTree = "<group>"; };
+		BAAF5F4C288DA2F1001E5195 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				BAAF5F37288BD4B0001E5195 /* HomeView.swift */,
 				BAAF5F41288BDE01001E5195 /* MainContainerView.swift */,
 				BAAF5F3B288BD4CF001E5195 /* ActiveGameView.swift */,
+				BAAF5F4C288DA2F1001E5195 /* Extensions.swift */,
 				BAAF5F47288BEE64001E5195 /* LyricsView.swift */,
 				BAAF5F45288BDEDB001E5195 /* Test Data.swift */,
 				BAAF5F4B288C0C4A001E5195 /* Data */,
@@ -215,6 +218,7 @@
 				BA6845A92871B77A009300E6 /* ContentView.swift in Sources */,
 				BAAF5F3A288BD4C3001E5195 /* PreviousGamesView.swift in Sources */,
 				BAAF5F38288BD4B0001E5195 /* HomeView.swift in Sources */,
+				BAAF5F4D288DA2F1001E5195 /* Extensions.swift in Sources */,
 				BAAF5F40288BD4E8001E5195 /* GameEndedView.swift in Sources */,
 				BA6845A72871B77A009300E6 /* NameItApp.swift in Sources */,
 				BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */,

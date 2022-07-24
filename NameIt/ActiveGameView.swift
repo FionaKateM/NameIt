@@ -6,34 +6,54 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ActiveGameView: View {
     @EnvironmentObject var settings: GameSettings
-    @FocusState private var focus: FocusableField?
+    @FocusState var focus: FocusableField?
     @State private var word: String = ""
+    @State private var keyboardHeight: CGFloat = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    
     var body: some View {
-        Text("\(settings.timeRemaining)")
-            .onReceive(timer) { _ in
-                if settings.timeRemaining > 0 {
-                    settings.timeRemaining -= 1
-                } else {
-                    settings.gameStatus = .ended
-                }
+        GeometryReader { metrics in
+            VStack {
+                Text("\(settings.timeRemaining)")
+                    .onReceive(timer) { _ in
+                        if settings.timeRemaining > 0 {
+                            settings.timeRemaining -= 1
+                        } else {
+                            settings.gameStatus = .ended
+                        }
+                    }
+                TextField("Type your answer", text: $word)
+                    .disableAutocorrection(true)
+                    .textCase(.lowercase)
+                    .textInputAutocapitalization(.never)
+//                    .padding(.horizontal)
+                    .textFieldStyle(.roundedBorder)
+                    .focused($focus, equals: .word)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                            focus = .word
+                        }
+                    }
+                LyricsView(rows: getRows())
+                    .frame(maxHeight: (metrics.size.height))
+                    .onChange(of: word) { newValue in
+                        checkWord()
+                    }
+                    .ignoresSafeArea(.keyboard)
+//                    .padding(.bottom, keyboardHeight)
+                    .onReceive(Publishers.keyboardHeight) {
+                        self.keyboardHeight = $0
+                        print($0)
+                        print(metrics.size.height)
+                    }
+                Spacer()
             }
-        TextField("Type your answer", text: $word)
-            .disableAutocorrection(true)
-            .textCase(.lowercase)
-            .textInputAutocapitalization(.never)
-            .padding(.horizontal)
-            .textFieldStyle(.roundedBorder)
-            .focused($focus, equals: .word)
-        LyricsView(rows: getRows())
-            .onChange(of: word) { newValue in
-                checkWord()
-            }
-        Spacer()
+        }
     }
     
     func getRows() -> [String] {
@@ -71,8 +91,8 @@ struct ActiveGameView: View {
     }
 }
 
-struct ActiveGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActiveGameView()
-    }
-}
+//struct ActiveGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActiveGameView()
+//    }
+//}

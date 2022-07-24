@@ -53,7 +53,6 @@ struct LyricsView: View {
                                             .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
                                             .background(.gray)
                                             .cornerRadius(15)
-                                        //                                            .id(i)
                                     } else {
                                         Text(word)
                                             .minimumScaleFactor(0.1)
@@ -61,7 +60,6 @@ struct LyricsView: View {
                                             .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
                                             .background(.pink)
                                             .cornerRadius(15)
-                                        //                                            .id(i)
                                     }
                                 }
                                 Spacer()
@@ -71,7 +69,7 @@ struct LyricsView: View {
                         }
                         Spacer()
                             .onChange(of: settings.lastGuessedWord) { word in
-                                scrollView.scrollTo(getScrollLocation(), anchor: .top)
+                                scrollView.scrollTo(getScrollLocation())
                             }
                         
                     }
@@ -84,7 +82,12 @@ struct LyricsView: View {
     func getScrollLocation() -> Int {
         for i in (0..<rows.count) {
             if rows[i].contains(settings.lastGuessedWord) {
-                return i
+                if i > rows.count - 10 {
+                    return i
+//                    return rows.count - 10
+                } else {
+                    return i
+                }
             }
         }
         return 0

@@ -101,9 +101,9 @@ struct MainContainerView: View {
 //        word = ""
         settings.gameStatus = .started
         settings.timeRemaining = settings.song?.timer ?? 0
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-        //            focus = .word
-        //        }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+//                    ActiveGameView.focus = .word
+//                }
     }
     
     func testAdd(song: Song) {
