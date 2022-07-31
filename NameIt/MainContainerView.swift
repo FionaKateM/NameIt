@@ -28,7 +28,7 @@ struct MainContainerView: View {
     //    private var tempListData: List?
     //    @State private var previousLists: [List] = []
     //    @State private var todaysID = ""
-
+    
     var body: some View {
         VStack {
             Text("Name It")
@@ -159,7 +159,7 @@ struct MainContainerView: View {
                         // total players
                         globalData.totalPlayers = querySnapshot!.documents.count
                         
-    //                    print("\(document.documentID) => \(document.data())")
+                        //                    print("\(document.documentID) => \(document.data())")
                         
                     }
                     settings.globalGameData = globalData
@@ -168,21 +168,20 @@ struct MainContainerView: View {
             }
         
     }
-
+    
     func getColors(){
         print("colors start: \(settings.globalGameData.words)")
         var colors:[String: Color] = [:]
         let max = settings.globalGameData.words.values.max() ?? 1
         for word in settings.globalGameData.words {
-            let value = (word.value / max) * 200
-                colors[word.key] = Color(red: Double(100 - value), green: Double(100 + value), blue: 100, opacity: 1)
-    //        colors[word.key] = Color(red: 200, green: 100, blue: 100, opacity: 1)
-            
+            let value = 0.2 + ((Double(word.value) / Double(max))*0.8)
+            let color = Color("Green")
+            colors[word.key] = color.opacity(value)
         }
-        print("colors: \(colors)")
         settings.wordColors = colors
+        print("settings word Colors: \(settings.wordColors)")
     }
-
+    
     
 }
 
