@@ -155,6 +155,8 @@ struct MainContainerView: View {
                             print("dict words: \(dict["words"])")
                         }
                         
+                        settings.arrayOfWords = getArrayOfWords(settings: settings)
+                        
                         print("global data: \(globalData)")
                         // total players
                         globalData.totalPlayers = querySnapshot!.documents.count

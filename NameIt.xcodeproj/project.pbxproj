@@ -30,6 +30,7 @@
 		BAAF5F4A288BF443001E5195 /* MasterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F49288BF443001E5195 /* MasterData.swift */; };
 		BAAF5F4D288DA2F1001E5195 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF5F4C288DA2F1001E5195 /* Extensions.swift */; };
 		BAB5644E288DC79600832326 /* FirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5644D288DC79600832326 /* FirebaseFunctions.swift */; };
+		BAB56450289682E300832326 /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5644F289682E300832326 /* GameFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		BAAF5F49288BF443001E5195 /* MasterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterData.swift; sourceTree = "<group>"; };
 		BAAF5F4C288DA2F1001E5195 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BAB5644D288DC79600832326 /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
+		BAB5644F289682E300832326 /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				BAAF5F49288BF443001E5195 /* MasterData.swift */,
 				BAAF5F43288BDE89001E5195 /* Classes Enum Structs.swift */,
 				BAB5644D288DC79600832326 /* FirebaseFunctions.swift */,
+				BAB5644F289682E300832326 /* GameFunctions.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				BAAF5F48288BEE64001E5195 /* LyricsView.swift in Sources */,
 				BAB5644E288DC79600832326 /* FirebaseFunctions.swift in Sources */,
 				BA6845C3287204E9009300E6 /* ActiveSoloGameView.swift in Sources */,
+				BAB56450289682E300832326 /* GameFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

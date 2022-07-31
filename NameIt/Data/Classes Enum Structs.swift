@@ -50,6 +50,7 @@ class GameSettings: ObservableObject {
     @Published var allSynonyms: [String] = [] // for quick checking during active game
     @Published var lastGuessedWord = "" // allows scroll view to jump to last guessed word, also allows extra styling
     @Published var gameID = ""
+    @Published var arrayOfWords: [[String]] = [[]]
     var globalGameData = GlobalGameData(totalPlayers: 0, words: [:], finishTimes: [:])
     var wordColors: [String: Color] = [:]
 }
@@ -71,25 +72,11 @@ struct GlobalGameData: Codable, Identifiable, Hashable {
     var finishTimes: [Int: Int]
 }
 
-//var Colors {
-//    var value0 = Color.red
-//    var value5 = Color.blue
-//    var value10 = Color.pink
-//    var value15 = Color.green
-//    var value20 = Color.gray
-//    var value25 = Color.purple
-//    var value30 = Color.yellow
-//    var value35 = Color.black
-//    var value40 = Color.teal
-//    var value45 = Color.brown
-//    var value50 = Color.white
-//    var value55 = Color.cyan
-//    var value60 = Color.indigo
-//    var value65 = Color.mint
-//    var value70 = Color(red: 70, green: 70, blue: 70)
-//    var value80 = Color(red: 80, green: 80, blue: 80)
-//    var value90 = Color(red: 90, green: 90, blue: 90)
-//    var value100 = Color(red: 100, green: 100, blue: 100)
-//}
+class GameScore {
+    @Published var gameID: String = ""
+    @Published var songCompletionPercentage: Double = 0
+    @Published var uniqueWordPercentage: Double = 0
+    @Published var timeRemaining: Int = 0
+}
 
 

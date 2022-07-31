@@ -58,7 +58,7 @@ struct ActiveGameView: View {
                 Spacer()
                 if settings.gameStatus == .ended {
                     GameEndedView(dataEvent: DataEvent())
-                        .frame(minHeight: keyboardHeight, maxHeight: (keyboardHeight))
+//                        .frame(minHeight: keyboardHeight, maxHeight: keyboardHeight)
                         
                 }
             }

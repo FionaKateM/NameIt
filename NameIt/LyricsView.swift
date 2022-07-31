@@ -14,7 +14,6 @@ struct LyricsView: View {
     //    @State var scrollLocation = 0
     
     var body: some View {
-        //        ScrollView {
         ScrollViewReader { scrollView in
             GeometryReader { metrics in
                 ScrollView(.vertical, showsIndicators: false) {
@@ -29,15 +28,22 @@ struct LyricsView: View {
                                     let word = array[x]
                                     let cleanWord = cleanUp(word: word)
                                     let width = (metrics.size.width / (CGFloat((array.count + 1)))) - 8
-                                    
-                                    if settings.gameStatus == .ended || !settings.allSynonyms.contains(cleanWord) {
+                                    if settings.gameStatus == .ended {
                                         Text(word)
                                             .minimumScaleFactor(0.1)
                                             .padding(5)
                                             .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
                                                                                     .background(settings.wordColors[cleanWord])
                                             .cornerRadius(15)
-                                        
+                                            .foregroundColor(settings.allSynonyms.contains(cleanWord) ? .red : .black)
+                                    } else if !settings.allSynonyms.contains(cleanWord) {
+                                        Text(word)
+                                            .minimumScaleFactor(0.1)
+                                            .padding(5)
+                                            .frame(minWidth: width, maxWidth: width, minHeight: 20, maxHeight: 20)
+                                                                                    .background(settings.wordColors[cleanWord])
+                                            .cornerRadius(15)
+                                            .foregroundColor(.black)
                                     } else {
                                         Text("")
                                             .minimumScaleFactor(0.1)
@@ -84,6 +90,8 @@ struct LyricsView: View {
     
     
 }
+
+
 
 func cleanUp(word: String) -> String {
     let lowercase = word.lowercased()
