@@ -25,7 +25,7 @@ struct GameEndedView: View {
                 }
             
             Text("Completion: \(String(format: "%.2f", gameScore.songCompletionPercentage))%")
-            Text("Unique words: \(String(format: "%.2f", gameScore.uniqueWordPercentage))%")
+            Text("Unique words: \(String(format: "%.0f", gameScore.uniqueWordPercentage)) / \(settings.unguessedWords.keys.count + settings.correctAnswersGiven.count)")
             Text("Time remaining: \(gameScore.timeRemaining) seconds")
             
             
@@ -76,7 +76,8 @@ func getScoring(settings: GameSettings) -> GameScore {
     
     var result = GameScore()
     result.timeRemaining = settings.timeRemaining
-    result.uniqueWordPercentage = uniqueWords
+//    result.uniqueWordPercentage = uniqueWords
+    result.uniqueWordPercentage = Double(settings.correctAnswersGiven.count)
     result.songCompletionPercentage = totalCompletion
     print("result: \(result)")
     
